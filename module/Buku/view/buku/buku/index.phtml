@@ -13,41 +13,73 @@
         font-size: small;
     }
 </style>
-<h3>Halaman Kelola Buku</h3>
-<div class="mt-3 ">
-    <div class="card p-3">
-        <table class="table table-bordered w-100 table-hover">
-            <thead>
-                <tr>
-                    <td class="text-center">No</td>
-                    <td class="text-center">Kode Buku</td>
-                    <td class="text-center">Judul Buku</td>
-                    <td class="text-center">Penulis Buku</td>
-                    <td class="text-center">Terbit Buku</td>
-                    <td class="text-center">Deskripsi Buku</td>
-                    <td class="text-center">Penerbit Buku</td>
-                    <td class="text-center">#</td>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $no = 1;
-                foreach ($data as $row) : ?>
-                    <tr>
-                        <td class="text-center"><?= $no++ ?></td>
-                        <td class="text-center"><?= $row['kode_buku'] ?></td>
-                        <td><?= $row['judul_buku'] ?></td>
-                        <td><?= $row['penulis_buku'] ?></td>
-                        <td><?= $row['terbit_buku'] ?></td>
-                        <td><?= $row['deskripsi_buku'] ?></td>
-                        <td><?= $row['penerbit_buku'] ?></td>
-                        <td class="text-center gap-2">
-                            <a href="" class="btn btn-warning">Edit</a>
-                            <a href="" class="btn btn-warning">Hapus</a>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+
+
+<div class="page-breadcrumb">
+    <div class="row">
+        <div class="col-7 align-self-center">
+            <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Good Morning Jason!</h3>
+            <div class="d-flex align-items-center">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb m-0 p-0">
+                        <li class="breadcrumb-item"><a href="index.html">Dashboard/Manajemen Buku</a>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <div class="col-5 align-self-center">
+            <div class="customize-input float-right">
+                <select class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius">
+                    <option selected>Aug 19</option>
+                    <option value="1">July 19</option>
+                    <option value="2">Jun 19</option>
+                </select>
+            </div>
+        </div>
     </div>
 </div>
+<div class="container-fluid">
+    <h3>Halaman Kelola Buku</h3>
+    <div class="mt-3 ">
+        <div class="card border-0 p-3 table-responsive">
+            <table class="table table-bordered w-100 table-hover" id="datatable">
+                <thead>
+                    <tr>
+                        <td class="text-center">No</td>
+                        <td class="text-center">Kode Buku</td>
+                        <td class="text-center">Judul Buku</td>
+                        <td class="text-center">Penulis Buku</td>
+                        <td class="text-center">Terbit Buku</td>
+                        <td class="text-center">Deskripsi Buku</td>
+                        <td class="text-center">Penerbit Buku</td>
+                        <td class="text-center">_____#_____</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $no = 1;
+                    foreach ($data as $row) : ?>
+                        <tr>
+                            <td class="text-center"><?= $no++ ?></td>
+                            <td class="text-center"><?= $row['kode_buku'] ?></td>
+                            <td><?= $row['judul_buku'] ?></td>
+                            <td><?= $row['penulis_buku'] ?></td>
+                            <td><?= $row['terbit_buku'] ?></td>
+                            <td><?= $row['deskripsi_buku'] ?></td>
+                            <td><?= $row['penerbit_buku'] ?></td>
+                            <td class="text-center">
+                                <a href="" class="btn btn-sm btn-warning m-1"><i class="fa-regular fa-pen-to-square text-white"></i></a>
+                                <a href="" class="btn btn-sm btn-danger m-1"><i class="fa-solid fa-trash-can"></i></a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    new DataTable('#datatable');
+</script>
